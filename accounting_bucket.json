@@ -1,0 +1,30 @@
+{
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::000000000000:user/accountant"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::cohort3-annual-reports",
+            "Condition": {
+                "Bool": {
+                    "aws:MultiFactorAuthPresent": "true"
+                }
+            }
+        },
+        {
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::cohort3-annual-reports/*",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::000000000000:user/auditor1",
+                    "arn:aws:iam::000000000000:user/auditor2"
+                ]
+            }
+        }    
+    ]
+}

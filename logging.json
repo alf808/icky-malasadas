@@ -1,0 +1,6 @@
+{
+    "LoggingEnabled": {
+        "TargetBucket": "cohort3-annual-reports",
+        "TargetPrefix": "report-access-logs/"
+    }
+}
